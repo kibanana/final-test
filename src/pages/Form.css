@@ -1,0 +1,23 @@
+div.sign legend {
+  color: black;
+  font-size: 1.3rem;
+  margin: 30px 0;
+}
+
+div.sign label {
+  color: black;
+  font-size: 0.9rem;
+}
+
+div.sign input, button {
+  display: block;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+div.sign button {
+  margin: 30px auto;
+}
