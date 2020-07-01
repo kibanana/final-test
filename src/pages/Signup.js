@@ -22,11 +22,11 @@ class Signup extends Component {
 
   handleEmailCheck = async (e) => {
     try {
+      alert('인증 메일이 발송되었습니다. 이메일 인증 후 회원가입 과정을 진행해주세요!');
       await emailVerify(this.state.email);
       this.setState({
         emailChk: true,
       });
-      alert('인증 메일이 발송되었습니다. 이메일 인증 후 회원가입 과정을 진행해주세요!');
     }
     catch (err) {
       ////////
