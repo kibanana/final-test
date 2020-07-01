@@ -114,7 +114,7 @@ class Signup extends Component {
           <Col xs={5}>
             <Form.Group>
               <Form.Label>이메일</Form.Label>
-              <Form.Control type="text" name="email" placeholder="이메일을 입력해주세요" onChange={this.handleChange} />
+              <Form.Control type="email" name="email" placeholder="이메일을 입력해주세요" onChange={this.handleChange} />
               <Button type="button" onClick={this.handleEmailCheck} variant="warning">이메일 인증</Button>
             </Form.Group>
           </Col>
