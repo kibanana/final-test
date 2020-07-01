@@ -11,3 +11,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.7rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    padding: 0 15%;
+  }
+  .content {
+    margin: 0;
+    padding: 0 20%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .header {
+    padding: 0 10%;
+  }
+  .content {
+    margin: 0;
+    padding: 0 10%;
+    padding: 0 15%;
+  }
+}
+
+.content--view {
+  font-size: 1.3rem;
+}
+
+.container--horizontal {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.container--horizontal, .container--vertical .item {
+  flex: 1;
+}
+
+.container--ellipsis {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.ellipsis {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container--tr {
+  display: flex; 
+}

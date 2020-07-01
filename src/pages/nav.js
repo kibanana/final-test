@@ -24,6 +24,10 @@ export default [
     name: '게시판',
   },
   {
+    path: '/boards/analysis',
+    name: '통계',
+  },
+  {
     path: '/chat',
     name: '채팅',
   },

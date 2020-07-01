@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Col, Row, Button } from 'react-bootstrap';
 import './Form.css';
 import { emailVerify, signUp } from '../lib/axios';
 
@@ -12,6 +13,12 @@ class Signup extends Component {
     message: null,
     emailChk: false,
   };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
 
   handleEmailCheck = async (e) => {
     try {
@@ -43,13 +50,7 @@ class Signup extends Component {
       }
     }
   }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-
+  
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -106,38 +107,57 @@ class Signup extends Component {
     const currentDate = tempCurrentDate.toISOString().substr(0,10);
     const { emailChk, email, password, nickname, address, birthDay } = this.state;
     return (
-      <div className="sign">
+      <div className="content">
+        <Form className="sign">
         <legend>회원가입</legend>
-        <div onSubmit={this.handleSubmitSubmit}>
-          <label>
-            이메일
-            <input type="text" name="email" placeholder="이메일을 입력해주세요" onChange={this.handleChange} />
-            <button type="button" onClick={this.handleEmailCheck}>이메일 인증</button>
-          </label>
-          <label>
-            비밀번호
-            <input type="password" name="password" placeholder="비밀번호를 입력해주세요" onChange={this.handleChange} />
-          </label>
-          <label>
-            닉네임
-            <input type="text" name="nickname"  placeholder="닉네임을 입력해주세요" onChange={this.handleChange} />
-          </label>
-          <label>
-            주소
-            <input type="text" name="address" placeholder="주소를 입력해주세요" onChange={this.handleChange} />
-          </label>
-          <label>
-            생년월일
-            <input type="date" name="birthDay" max={currentDate} onChange={this.handleChange} />
-          </label>
-
-          <div className="message">
-            <span>{this.state.message}</span>
-          </div>
-
-          <button type="button" disabled={!emailChk || !email || !password || !nickname || !address || !birthDay} onClick={this.handleSubmit}>회원가입 완료</button>
+        <Row>
+          <Col xs={5}>
+            <Form.Group>
+              <Form.Label>이메일</Form.Label>
+              <Form.Control type="text" name="email" placeholder="이메일을 입력해주세요" onChange={this.handleChange} />
+              <Button type="button" onClick={this.handleEmailCheck} variant="warning">이메일 인증</Button>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={5}>
+            <Form.Group>
+              <Form.Label>비밀번호</Form.Label>
+                <Form.Control type="password" name="password" placeholder="비밀번호를 입력해주세요" onChange={this.handleChange} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={5}>
+            <Form.Group>
+              <Form.Label>닉네임</Form.Label>
+                <Form.Control type="text" name="nickname"  placeholder="닉네임을 입력해주세요" onChange={this.handleChange} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={5}>
+            <Form.Group>
+              <Form.Label>주소</Form.Label>
+                <Form.Control type="text" name="address" placeholder="주소를 입력해주세요" onChange={this.handleChange} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={5}>
+            <Form.Group>
+              <Form.Label>생년월일</Form.Label>
+                <Form.Control type="date" name="birthDay" max={currentDate} onChange={this.handleChange} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <div className="message">
+          <span>{this.state.message}</span>
         </div>
-      </div>
+
+        <Button type="button" disabled={!emailChk || !email || !password || !nickname || !address || !birthDay} onClick={this.handleSubmit} varient="primary">회원가입 완료</Button>
+      </Form>
+    </div>
     );
   }
 }

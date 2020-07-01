@@ -4,6 +4,7 @@ import Signin from './Signin';
 import Signout from './Signout';
 import BoardList from './BoardList';
 import BoardView from './BoardView';
+import BoardAnalysis from './BoardAnalysis';
 import Chat from './Chat';
 
 //// name 삭제
@@ -28,10 +29,16 @@ export default [
   {
     path: '/boards',
     component: BoardList,
+    exact: true,
   },
   {
     path: '/board/:id',
     component: BoardView,
+  },
+  // board create, update, delete는 별도의 페이지 이동 없이 처리한다.
+  {
+    path: '/boards/analysis',
+    component: BoardAnalysis,
   },
   {
     path: '/chatting',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import nav from './nav';
+import nav from '../pages/nav';
 
 // pages의 path를 to로 가져와야 한다.
 
@@ -10,8 +10,9 @@ import nav from './nav';
 class Header extends Component {
   render() {
     const activeLinkStyle = {
-      color: '#ffad60',
-      fontSize: '2rem',
+      background: '#007bff',
+      color: 'white',
+      fontSize: '1.8rem',
     }
 
     /////////
@@ -24,16 +25,16 @@ class Header extends Component {
     }
     return (
       <div className="header">
-        <ul>
-          { navs.map((elem, idx) => {
-              return (
-                <li key={idx}>
-                  <NavLink to={elem.path} activeStyle={activeLinkStyle}>{elem.name}</NavLink>
-                </li>
-              );
-            })
-          }
-        </ul>
+        { navs.map((elem, idx) => {
+            return (
+              <div key={idx}>
+                <NavLink to={elem.path} exact={true} activeStyle={activeLinkStyle} style={{flex: "1"}}>
+                  {elem.name}
+                </NavLink>
+              </div>
+            );
+          })
+        }
       </div>
     );
   }
